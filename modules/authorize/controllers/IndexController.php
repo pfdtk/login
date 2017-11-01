@@ -2,9 +2,9 @@
 
 namespace app\modules\authorize\controllers;
 
+use Yii;
 use app\modules\authorize\services\Oauth2;
 use app\traits\JsonResponseTrait;
-use Yii;
 use app\modules\authorize\services\Login;
 use yii\base\Module;
 use yii\web\Controller;
