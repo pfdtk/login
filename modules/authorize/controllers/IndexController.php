@@ -2,6 +2,7 @@
 
 namespace app\modules\authorize\controllers;
 
+use League\OAuth2\Server\Exception\OAuthServerException;
 use Yii;
 use app\modules\authorize\services\Oauth2;
 use app\traits\JsonResponseTrait;
@@ -59,15 +60,19 @@ class IndexController extends Controller
      * &client_id=client1
      * &redirect_uri=http%3A%2F%2Ftest.jhj.com%2Flogin%2Fdefault%2Foauth2
      * @return string
+     * @throws OAuthServerException
      */
     public function actionIndex()
     {
-        $this->oauth2->validateAuthorizationRequest();
+        $authRequest = $this->oauth2->validateAuthorizationRequest();
 
         $gets = Yii::$app->request->get();
 
         if (Yii::$app->user->identity) {
-            return $this->render('info');
+            return $this->render('info', array_merge($gets, [
+                'clientName' => $authRequest->getClient()->getName(),
+                'scopes' => $authRequest->getScopes(),
+            ]));
         }
 
         return $this->render('index', $gets);
@@ -75,6 +80,7 @@ class IndexController extends Controller
 
     /**
      * @return string
+     * @throws OAuthServerException
      */
     public function actionLogin()
     {
@@ -99,6 +105,7 @@ class IndexController extends Controller
 
     /**
      * @return string
+     * @throws OAuthServerException
      */
     public function actionConfirm()
     {

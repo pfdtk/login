@@ -2,7 +2,6 @@
 
 namespace app\authorize;
 
-use Yii;
 use app\authorize\repositories\db\AuthCodeRepository;
 use app\authorize\repositories\db\RefreshTokenRepository;
 use app\authorize\repositories\db\ScopeRepository;

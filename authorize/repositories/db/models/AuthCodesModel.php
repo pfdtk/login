@@ -3,7 +3,6 @@
 
 namespace app\authorize\repositories\db\models;
 
-use Yii;
 use yii\db\ActiveRecord;
 
 /**

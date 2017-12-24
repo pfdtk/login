@@ -4,7 +4,6 @@
 namespace app\authorize\repositories\db\models;
 
 use app\traits\TimeBehaviorsTrait;
-use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 

@@ -29,7 +29,7 @@ class ScopeEntity implements ScopeEntityInterface
     }
 
     /**
-     * @return array
+     * @return string
      */
     public function jsonSerialize()
     {
