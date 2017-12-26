@@ -45,14 +45,14 @@ class ScopeRepository implements ScopeRepositoryInterface
         /** @var ScopesModel[] $result */
         $result = $query->all();
 
-        $entitys = [];
+        $entities = [];
         foreach ($result as $item) {
             foreach ($scopes as $key => $scope) {
-                if ($item->id == $scope->getIdentifier()) $entitys[$key] = $scope;
+                if ($item->id == $scope->getIdentifier()) $entities[$key] = $scope;
             }
         }
 
-        return $entitys;
+        return $entities;
     }
 
 
