@@ -9,6 +9,7 @@ use GuzzleHttp\Psr7\ServerRequest;
 use League\OAuth2\Server\RequestTypes\AuthorizationRequest;
 use League\OAuth2\Server\Exception\OAuthServerException;
 use GuzzleHttp\Psr7\Response as PsrResponse;
+use yii\base\InvalidConfigException;
 
 /**
  * Class Oauth2
@@ -29,6 +30,7 @@ class Oauth2
 
     /**
      * Oauth2 constructor.
+     * @throws InvalidConfigException
      */
     public function __construct()
     {

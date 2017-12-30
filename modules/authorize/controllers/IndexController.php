@@ -79,7 +79,7 @@ class IndexController extends Controller
     }
 
     /**
-     * @return string
+     * @return array
      * @throws OAuthServerException
      */
     public function actionLogin()
@@ -104,7 +104,7 @@ class IndexController extends Controller
     }
 
     /**
-     * @return string
+     * @return array
      * @throws OAuthServerException
      */
     public function actionConfirm()

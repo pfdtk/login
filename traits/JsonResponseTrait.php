@@ -13,20 +13,20 @@ use yii\web\Response;
 trait JsonResponseTrait
 {
     /**
-     * @param array $content
+     * @param mixed $content
      * @return mixed
      */
-    public function responseJson(array $content)
+    public function responseJson($content)
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
         return $content;
     }
 
     /**
-     * @param array $content
-     * @return mixed
+     * @param mixed $content
+     * @return array
      */
-    public function responseSuccessJson(array $content)
+    public function responseSuccessJson($content)
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
         return [
@@ -38,7 +38,7 @@ trait JsonResponseTrait
 
     /**
      * @param string $content
-     * @return mixed
+     * @return array
      */
     public function responseErrorJson($content)
     {

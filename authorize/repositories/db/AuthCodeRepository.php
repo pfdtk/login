@@ -49,6 +49,6 @@ class AuthCodeRepository implements AuthCodeRepositoryInterface
      */
     public function isAuthCodeRevoked($codeId)
     {
-        return !AuthCodesModel::findOne(['id' => $codeId]) ? true : false;
+        return !AuthCodesModel::findOne(['code' => $codeId]) ? true : false;
     }
 }
