@@ -8,6 +8,7 @@ use yii\web\IdentityInterface;
 /**
  * @property int id
  * @property string password
+ * @property string username
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -41,6 +42,14 @@ class User extends ActiveRecord implements IdentityInterface
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getUsername()
+    {
+        return $this->username;
     }
 
     /**

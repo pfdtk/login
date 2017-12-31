@@ -5,7 +5,7 @@ namespace app\modules\authorize\services;
 use app\authorize\entities\UserEntity;
 use Yii;
 use League\OAuth2\Server\AuthorizationServer;
-use GuzzleHttp\Psr7\ServerRequest;
+use app\authorize\requests\ServerRequest;
 use League\OAuth2\Server\RequestTypes\AuthorizationRequest;
 use League\OAuth2\Server\Exception\OAuthServerException;
 use GuzzleHttp\Psr7\Response as PsrResponse;

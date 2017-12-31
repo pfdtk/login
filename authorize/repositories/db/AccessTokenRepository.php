@@ -50,6 +50,11 @@ class AccessTokenRepository implements AccessTokenRepositoryInterface
      */
     public function isAccessTokenRevoked($tokenId)
     {
-        return !AccessTokensModel::findOne(['access_token_id' => $tokenId]) ? true : false;
+        $condition = [
+            'and',
+            ['access_token_id' => $tokenId],
+            ['>=', 'expire_time', time()]
+        ];
+        return !AccessTokensModel::find()->where($condition)->one() ? true : false;
     }
 }

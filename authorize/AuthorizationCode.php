@@ -21,6 +21,11 @@ class AuthorizationCode extends Component implements GrantInterface
     /**
      * @var string
      */
+    public $publicKeyPath;
+
+    /**
+     * @var string
+     */
     public $encryptionKey;
 
     /**

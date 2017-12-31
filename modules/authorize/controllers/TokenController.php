@@ -2,6 +2,7 @@
 
 namespace app\modules\authorize\controllers;
 
+use app\authorize\responses\ErrorResponse;
 use app\authorize\tokens\AccessToken;
 use app\modules\authorize\services\Oauth2;
 use app\traits\JsonResponseTrait;
@@ -70,15 +71,12 @@ class TokenController extends Controller
             return $this->responseJson($this->accessToken->content());
         } catch (OAuthServerException $exception) {
             \Yii::error($exception);
-            \Yii::$app->response->statusCode = $exception->getHttpStatusCode();
-            foreach ($exception->getHttpHeaders() as $header => $content) {
-                \Yii::$app->response->headers->set($header, $content);
-            }
-            $content = (string)$exception->generateHttpResponse($this->response)->getBody();
-            return $this->responseJson(json_decode($content, true));
+            $e = $exception;
         } catch (\Exception $exception) {
-            return $this->responseJson(['error' => 'Unkown', 'message' => 'System error.', 'hint' => 'Exception']);
+            \Yii::error($exception);
+            $e = $exception;
         }
+        return (new ErrorResponse($e))->toJson();
     }
 
 }

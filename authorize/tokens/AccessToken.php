@@ -2,7 +2,7 @@
 
 namespace app\authorize\tokens;
 
-use GuzzleHttp\Psr7\ServerRequest;
+use app\authorize\requests\ServerRequest;
 use GuzzleHttp\Psr7\Response as PsrResponse;
 use League\OAuth2\Server\AuthorizationServer;
 
