@@ -33,6 +33,7 @@ class AccessTokenRepository implements AccessTokenRepositoryInterface
         if (!$accessTokenModel->save()) {
             throw UniqueTokenIdentifierConstraintViolationException::create();
         }
+        //@todo bind access token to scopes due to permission limit.
     }
 
     /**

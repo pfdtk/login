@@ -34,6 +34,7 @@ class BearerAuth extends AuthMethod
         try {
             $auth = $server->validateAuthenticatedRequest(ServerRequest::fromGlobals());
             $userId = $auth->getAttribute('oauth_user_id');
+            //@todo check scope permission with the given access token.
             $identity = User::findIdentity($userId);
             $user->login($identity);
             return $identity;
